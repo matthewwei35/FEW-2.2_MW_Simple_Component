@@ -22,11 +22,13 @@ class HelloWorld extends HTMLElement {
     // closed: Denies access to the node(s) of a closed shadow root from JavaScript outside it
     
     // Make a new element to hold hello world
-    this._el = document.createElement('span')
+    this._el = document.createElement('h1')
     // Set the content of the new element
     this._el.innerHTML = 'Hello World'
     // Set styles on the new element
-    this._el.style.color = 'red'
+    this._el.style.color = 'coral'
+    this._el.style.backgroundColor = 'skyblue'
+    this._el.style.letterSpacing = '1rem'
 
     // Add this element to the shadow root
     this._shadowRoot.appendChild(this._el)
@@ -61,4 +63,3 @@ use your own ideas:
 - letterSpacing
 
 */
-
