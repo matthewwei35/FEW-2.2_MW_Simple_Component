@@ -4,26 +4,35 @@ class RansomNote extends HTMLElement {
   constructor() {
     super(); 
     this._shadowRoot = this.attachShadow({ mode: 'open' });
+
+    const fonts = ['Helvetica', 'Times', 'Courier']
     
     // Get the text of the host element this.innerHTML
-
+    this._text = this.innerHTML;
     // Split the string into an array of words text.split(' ')
-
+    this._text = this._text.split(' ');
     // Loop over each word in the array
-
+    for (let i = 0; i < this._text.length; i += 1) {
       // Make a span 
-
+      this._el = document.createElement('span');
       // Set the innerHTML of the span to the current word 
-
+      this._el.innerHTML = this._text[i] + ' ';
       // Set a random style for example: 
       // span.style.fontSize = `${Math.random() * 20 + 12}px`
       // Should set a fontSize between 12px and 32px
-
+      this._el.style.fontSize = `${Math.random() * 20 + 12}px`;
       // Repeat the process above for as many styles as you can. For example: 
       // span.style.transform = `rotate(${Math.random() * 40 - 20}deg)`
       // WOuld generate a a rotation of -20deg to +20deg
-
+      this._el.style.transform = `rotate(${Math.random() * 24 - 12}deg)`;
+      // Fonts
+      this._el.style.fontFamily = fonts[Math.floor(Math.random() * fonts.length)];
+      // Font Weight
+      this._el.style.fontWeight = `${Math.random() * 20 + 12}rem`;
       // Append the word to the shadowroot
+      this._shadowRoot.appendChild(this._el)
+    }
+
   }
 }
 
